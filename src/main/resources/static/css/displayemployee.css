@@ -1,0 +1,22 @@
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+table th, table td {
+    border: 3px solid black;
+}
+
+h1 {
+    color: red;
+}
+
+.high {
+    background: #FFCCCC;
+}
+
+.low {
+    background: #66CCFF;
+}

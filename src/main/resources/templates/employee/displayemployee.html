@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>従業員一覧</title>
+</head>
+<body>
+    <h1>従業員一覧</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>年齢</th>
+<!--            <th>分類</th>-->
+        </tr>
+        <tr th:each="employee:${employees}">
+<!--            <td>[[${employee.id}]]</td>-->
+            <td>[[${employee.name}]]</td>
+            <td>[[${employee.age}]]</td>
+<!--            <th:block th:if="${employee.age} ge 20">-->
+<!--                <td>大人</td>-->
+<!--            </th:block>-->
+<!--            <th:block th:if="${employee.age} lt 20">-->
+<!--                <td>こども</td>-->
+<!--            </th:block>-->
+        </tr>
+    </table>
+<!--    <h1>２０才以上の従業員を表示</h1>-->
+<!--    <table border="1">-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>名前</th>-->
+<!--            <th>年齢</th>-->
+<!--        </tr>-->
+<!--        <th:block th:each="employee:${employees}">-->
+<!--            <tr th:if="employee.age ge 20">-->
+<!--                <td>[[${employee.id}]]</td>-->
+<!--                <td>[[${employee.name}]]</td>-->
+<!--                <td>[[${employee.age}]]</td>-->
+<!--            </tr>-->
+<!--        </th:block>-->
+<!--    </table>-->
+</body>
+<div>
+    <ul>
+        <li style="display:inline;">
+            <span th:if="${page.first}">&lt;&lt;前</span>
+            <a
+                    th:if="${!page.first}"
+                    th:href="@{/employee/display(page = ${page.number} - 1)}"
+            >
+                &lt;&lt;前
+            </a>
+        </li>
+        <li
+                th:each="i : ${#numbers.sequence(0, page.totalPages - 1)}"
+                style="display:inline; margin-left:10px;"
+        >
+            <span th:if="${i} == ${page.number}" th:text="${i + 1}">1</span>
+            <a
+                    th:if="${i} != ${page.number}"
+                    th:href="@{/employee/display(page = ${i})}"
+            >
+                <span th:text="${i+1}">1</span>
+            </a>
+        </li>
+        <li style="display:inline; margin-left:10px;">
+            <span th:if="${page.last}">次&gt;&gt;</span>
+            <a
+                    th:if="${!page.last}"
+                    th:href="@{/employee/display(page = (${page.number} + 1))}"
+            >
+                次&gt;&gt;
+            </a>
+        </li>
+    </ul>
+</div>
+</html>

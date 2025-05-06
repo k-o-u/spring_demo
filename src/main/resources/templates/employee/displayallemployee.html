@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>従業員一覧</title>
+  <link th:href="@{/css/displayemployee.css}" rel="stylesheet">
+</head>
+<body>
+  <h1>従業員一覧</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>年齢</th>
+      <th>分類</th>
+    </tr>
+    <tr th:each="employee:${employees}" th:class="${employee.age} ge 20 ? 'high' : 'low'">
+      <td>[[${employee.id}]]</td>
+      <td>[[${employee.name}]]</td>
+      <td>[[${employee.age}]]</td>
+      <th:block th:if="${employee.age} ge 20">
+        <td>成人</td>
+      </th:block>
+      <th:block th:if="${employee.age} lt 20">
+        <td>未成年</td>
+      </th:block>
+    </tr>
+  </table>
+  <h1>成人だけ表示</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>年齢</th>
+    </tr>
+    <th:block th:each="employee:${employees}">
+      <tr th:if="${employee.age} ge 20">
+        <td>[[${employee.id}]]</td>
+        <td>[[${employee.name}]]</td>
+        <td>[[${employee.age}]]</td>
+      </tr>
+    </th:block>
+  </table>
+</body>
+</html>
