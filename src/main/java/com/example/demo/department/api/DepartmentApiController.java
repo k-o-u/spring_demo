@@ -1,4 +1,4 @@
-package com.example.demo.department;
+package com.example.demo.department.api;
 
 import com.example.demo.db.entity.Department;
 import org.springframework.web.bind.annotation.*;
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("department")
-public class DepartmentController {
-    private DepartmentService service;
+@RequestMapping("api/department")
+class DepartmentApiController {
+    private DepartmentApiService service;
 
-    DepartmentController(DepartmentService service) {
+    DepartmentApiController(DepartmentApiService service) {
         this.service = service;
     }
 

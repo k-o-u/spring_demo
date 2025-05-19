@@ -14,6 +14,10 @@ public class Employee {
     @Column
     private int age;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     public int getId() {
         return id;
     }
@@ -36,5 +40,13 @@ public class Employee {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

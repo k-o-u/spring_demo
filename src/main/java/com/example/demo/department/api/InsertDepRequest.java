@@ -1,6 +1,6 @@
-package com.example.demo.department;
+package com.example.demo.department.api;
 
-public class InsertDepRequest {
+class InsertDepRequest {
     private String name;
 
     public String getName() {

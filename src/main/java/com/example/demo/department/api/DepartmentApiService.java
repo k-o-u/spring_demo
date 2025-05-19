@@ -1,4 +1,4 @@
-package com.example.demo.department;
+package com.example.demo.department.api;
 
 import com.example.demo.db.entity.Department;
 import com.example.demo.db.repository.DepartmentRepository;
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DepartmentService {
+class DepartmentApiService {
     private DepartmentRepository repository;
 
-    DepartmentService(DepartmentRepository repository) {
+    DepartmentApiService(DepartmentRepository repository) {
         this.repository = repository;
     }
 
