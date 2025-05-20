@@ -12,12 +12,15 @@
       <th>ID</th>
       <th>名前</th>
       <th>年齢</th>
+      <th>部署</th>
       <th>分類</th>
     </tr>
     <tr th:each="employee:${employees}" th:class="${employee.age} ge 20 ? 'high' : 'low'">
       <td>[[${employee.id}]]</td>
       <td>[[${employee.name}]]</td>
       <td>[[${employee.age}]]</td>
+<!--   三項演算子   -->
+      <td th:text="${employee.department} eq null ? '未所属' : ${employee.department.name}"></td>
       <th:block th:if="${employee.age} ge 20">
         <td>成人</td>
       </th:block>
