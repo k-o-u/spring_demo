@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TestApp</title>
+</head>
+<body>
+  <!-- headerフラグメント -->
+  <div th:fragment="header">
+    <img src="https://wings.msn.to/image/wings.jpg" title="ロゴ">
+    <hr> <!--水平に線を引く-->
+  </div>
+  <!-- footerフラグメント -->
+  <div th:fragment="footer">
+    <hr>
+    <p>copyright</p>
+  </div>
+</body>
+</html>

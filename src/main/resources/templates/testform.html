@@ -5,6 +5,10 @@
     <title>test</title>
 </head>
 <body>
+  <!-- headerフラグメント引用 -->
+  <!-- insertは現在の要素の配下に挿入、replaceは要素を置き換え -->
+<!--  <div th:insert="~{common/header_footer::header}"></div>-->
+  <div th:replace="~{common/header_footer::header}"></div>
   <p th:text="${msg}"></p>
   <p th:utext="${msg}"></p>
   <p th:text="|こんにちは、${name}さん|"></p>
@@ -39,5 +43,8 @@
 
   <p>繰り返し</p>
   <p th:each="num : ${#numbers.sequence(1,4)}">num = [[${num}]]</p>
+
+  <!-- footerフラグメント引用 -->
+  <div th:insert="~{common/header_footer::footer}"></div>
 </body>
 </html>
