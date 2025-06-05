@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head>
+<!-- metaフラグメント定義 -->
+<head th:fragment="meta(title,scripts)">
   <meta charset="UTF-8">
-  <title>TestApp</title>
+  <title th:replace="${title}">フラグメント定義</title>
+  <th:block th:replace="${scripts}"></th:block>
 </head>
 <body>
   <!-- headerフラグメント -->
@@ -12,9 +14,10 @@
     <hr> <!--水平に線を引く-->
   </div>
   <!-- footerフラグメント -->
-  <div th:fragment="footer">
+  <!-- パラメータを受け取ることもできる -->
+  <div th:fragment="footer(name,date)">
     <hr>
-    <p>copyright</p>
+    <p>copyright [[${date}]] [[${name}]]</p>
   </div>
 </body>
 </html>

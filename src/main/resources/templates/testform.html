@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-    <title>test</title>
+<!-- フラグメント呼び出し -->
+<head th:replace="~{common/header_footer::meta(~{::title}, ~{::script})}">
+  <!-- 下記をフラグメントに渡す -->
+  <title>TestApp</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
   <!-- headerフラグメント引用 -->
@@ -45,6 +47,6 @@
   <p th:each="num : ${#numbers.sequence(1,4)}">num = [[${num}]]</p>
 
   <!-- footerフラグメント引用 -->
-  <div th:insert="~{common/header_footer::footer}"></div>
+  <div th:insert="~{common/header_footer::footer('yamada','2025/06/05')}"></div>
 </body>
 </html>
