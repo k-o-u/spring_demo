@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 共通レイアウト -->
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title} ?: _">共通レイアウト</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- __~__ プリプロセッシング -->
+  <th:block th:replace="__${lib}__ ?: _"></th:block>
+</head>
+<body>
+  <div id="header">
+    <img src="https://wings.msn.to/image/wings.jpg" title="ロゴ">
+    <hr>
+  </div>
+<!-- メインコンテンツ -->
+  <div id="main" th:include="__${main}__"></div>
+  <div id="footer">
+    <hr>
+    <p>copyright</p>
+  </div>
+</body>
+</html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!-- フラグメント呼び出し -->
-<head th:replace="~{common/header_footer::meta(~{::title}, ~{::script})}">
+<!--<head th:replace="~{common/header_footer::meta(~{::title}, ~{::script})}">-->
+<!-- 渡すものがない場合は処理なしトークン -->
+<head th:replace="~{common/header_footer::meta(_, ~{::script})}">
   <!-- 下記をフラグメントに渡す -->
-  <title>TestApp</title>
+<!--  <title>TestApp</title>-->
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>

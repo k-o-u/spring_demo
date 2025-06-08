@@ -21,4 +21,15 @@ public class TestController {
         model.addAttribute("msgList", msgList);
         return "testform";
     }
+
+    @GetMapping("/view")
+    public String displayView(Model model) {
+        // 共通レイアウトを使用してview表示
+        // 共通レイアウトに渡す情報
+        model.addAttribute("title", "テスト");
+        model.addAttribute("lib", "master::lib");
+        model.addAttribute("main", "master::main");
+        // 共通レイアウトを呼び出す
+        return "common/layout";
+    }
 }
