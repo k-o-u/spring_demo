@@ -36,6 +36,8 @@
       <th>名前</th>
       <th>年齢</th>
     </tr>
+    <!-- 動的に実行される -->
+    <!--/*/
     <th:block th:each="employee:${employees}">
       <tr th:if="${employee.age} ge 20">
         <td>[[${employee.id}]]</td>
@@ -43,6 +45,21 @@
         <td>[[${employee.age}]]</td>
       </tr>
     </th:block>
+    /*/-->
+
+    <!-- 静的に実行される -->
+    <!--/*-->
+    <tr>
+      <td>1</td>
+      <td>name1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>name2</td>
+      <td>20</td>
+    </tr>
+    <!--*/-->
   </table>
 </body>
 </html>
